@@ -16,6 +16,9 @@ feature 'user registers', %Q{
     visit new_user_registration_path
 
     fill_in 'Email', with: 'john@example.com'
+    fill_in 'Name', with: 'Danger Mouse'
+    fill_in 'Personal Email', with: 'john2@example.com'
+    fill_in 'Job Title', with: 'Senior'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
