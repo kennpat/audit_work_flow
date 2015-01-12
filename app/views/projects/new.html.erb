@@ -1,0 +1,15 @@
+<%= form_for @project do |f| %>
+  <%= f.label :project_name, 'Project Name' %>
+  <%= f.text_field :project_name %>
+
+  <%= f.label :project_type, 'Project Type' %>
+  <%= f.text_field :project_type %>
+
+  <%= f.label :status, 'Project Status' %>
+  <%= f.text_field :status %>
+
+  <%= f.label :stage, 'Project Stage' %>
+  <%= f.text_field :stage %>
+
+  <%= f.submit 'Submit' %>
+<% end %>
