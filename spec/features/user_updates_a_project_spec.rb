@@ -16,12 +16,30 @@ feature 'A user wishes to update a currect project', %{
     fill_in 'Project Type', with: 'Education Entity Financial Statement Audit'
 
     click_on 'Update'
-    
+
     expect(page).to have_content 'Project updated successfully'
     expect(page).to have_content 'Launch Academy 12-31-2014 Audit '
     expect(page).to have_content 'Fieldwork'
     expect(page).to have_content 'Awaiting Approval'
     expect(page).to have_content 'Education Entity Financial Statement Audit'
+  end
+
+  scenario 'User tries to update with blank information' do
+    project = FactoryGirl.create(:project)
+    visit edit_project_path(project.id)
+
+    fill_in 'Project Name', with: ''
+    fill_in 'Project Status', with: ''
+    fill_in 'Stage', with: ''
+    fill_in 'Project Type', with: ''
+
+    click_on 'Update'
+
+    expect(page).to have_content ("Project name can't be blank")
+    expect(page).to have_content ("Project type can't be blank")
+    expect(page).to have_content ("Status can't be blank")
+    expect(page).to have_content ("Stage can't be blank")
+
   end
 
 end

@@ -1,4 +1,11 @@
 <h3>The below items are available to be updated:</h3>
+<ul>
+<% if @project.errors.any? %>
+  <% @project.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %>
+</ul>
 <div class="large-6 columns">
   <div class="row">
     <%= form_for @project do |f| %>
