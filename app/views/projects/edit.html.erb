@@ -1,8 +1,4 @@
-<% if @project.errors.any? %>
-  <% @project.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+<h3>The below items are available to be updated:</h3>
 <div class="large-6 columns">
   <div class="row">
     <%= form_for @project do |f| %>
@@ -18,7 +14,7 @@
       <%= f.label :stage, 'Project Stage' %>
       <%= f.text_field :stage %>
 
-      <%= f.submit 'Submit' %>
+      <%= f.submit 'Update' %>
     <% end %>
   </div>
 </div>
