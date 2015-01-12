@@ -19,14 +19,15 @@ feature 'Registered user wants to create a new project', %{
 
     end
 
-    # scenario 'User tries to create a new project forgetting required information' do
-    #   visit new_project_path
-    #   click_on 'Submit'
-    #
-    #   expect(page).to have_content ("Project Name can't be blank")
-    #   expect(page).to have_content ("Project Type can't be blank")
-    #   expect(page).to have_content ("Project Status can't be blank")
-    #   expect(page).to have_content ("Project Stage can't be blank")
-    # end
+    scenario 'User tries to create a new project forgetting required information' do
+      visit new_project_path
+      click_on 'Submit'
+      # note that status and stage have default values
+      expect(page).to have_content ("Project name can't be blank")
+      expect(page).to have_content ("Project type can't be blank")
+    end
+
+    # add a test for the redirect to the index page showing all the projects
+    # currently created active
 
 end
