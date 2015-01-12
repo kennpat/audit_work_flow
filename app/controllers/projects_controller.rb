@@ -16,6 +16,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def edit
     @project = Project.find(params[:id])
   end
@@ -26,6 +30,15 @@ class ProjectsController < ApplicationController
       redirect_to projects_path, notice: 'Project updated successfully'
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+      redirect_to projects_path, notice: 'Project has been successfully deleted'
+    else
+      render :show
     end
   end
 
