@@ -1,7 +1,7 @@
 require 'rails_helper'
-
-feature 'Registered user wants to create a new project', %{
-  As a registered user I want to
+# will retrofit to ensure only correct users can view projects
+feature 'User wants to create a new project', %{
+  As a User I want to
   create a new project
   so that I can track the progress of work
 } do
@@ -16,6 +16,9 @@ feature 'Registered user wants to create a new project', %{
       click_on 'Submit'
 
       expect(page).to have_content ('Project created successfully')
+      expect(page).to have_content ('Launch Academy 2014 Audit')
+      expect(page).to have_content ('Education')
+      expect(page).to have_content ('Planning')
 
     end
 

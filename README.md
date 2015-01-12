@@ -8,3 +8,7 @@ Audit_work_flow is a breakable toy project that will attempt to build
 a work flow solution for auditing.
 
 More updates to come as the project progresses.
+
+Goals:
+
+Technical Challenges:
