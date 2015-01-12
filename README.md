@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kennpat/audit-work-flow.svg?branch=master)](https://travis-ci.org/kennpat/audit-work-flow) [![Code Climate](https://codeclimate.com/github/kennpat/audit-work-flow.png)](https://codeclimate.com/github/kennpat/audit-work-flow) [![Coverage Status](https://coveralls.io/repos/kennpat/audit-work-flow/badge.png)](https://coveralls.io/r/kennpat/audit-work-flow)
+[![Build Status](https://travis-ci.org/kennpat/audit_work_flow.svg?branch=master)](https://travis-ci.org/kennpat/audit_work_flow) [![Code Climate](https://codeclimate.com/github/kennpat/audit_work_flow.png)](https://codeclimate.com/github/kennpat/audit_work_flow) [![Coverage Status](https://coveralls.io/repos/kennpat/audit_work_flow/badge.png)](https://coveralls.io/r/kennpat/audit_work_flow)
 
 
 
