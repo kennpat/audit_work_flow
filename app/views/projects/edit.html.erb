@@ -1,0 +1,29 @@
+<h3>The below items are available to be updated:</h3>
+<ul>
+<% if @project.errors.any? %>
+  <% @project.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %>
+</ul>
+<div class="large-6 columns">
+  <div class="row">
+    <%= form_for @project do |f| %>
+      <%= f.label :project_name, 'Project Name' %>
+      <%= f.text_field :project_name %>
+
+      <%= f.label :project_type, 'Project Type' %>
+      <%= f.text_field :project_type %>
+
+      <%= f.label :status, 'Project Status' %>
+      <%= f.text_field :status %>
+
+      <%= f.label :stage, 'Project Stage' %>
+      <%= f.text_field :stage %>
+
+      <%= f.submit 'Update' %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to :back, '/projects' %>

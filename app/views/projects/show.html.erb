@@ -1,0 +1,17 @@
+<h2><%= @project.project_name %></h2>
+<ul>
+  <li>
+    <%= @project.project_type %>
+    <%= @project.status %>
+    <%= @project.stage %>
+  </li>
+</ul>
+
+<div>
+  <ul>
+    <%= link_to 'Update Project', @project, method: :edit %>
+    <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </ul>
+</div>
+
+<div><%= link_to :back, '/projects' %></div>

@@ -1,0 +1,9 @@
+<h2>Current Projects</h2>
+
+
+<% @projects.each do |project| %>
+  <li>
+    <h3><%= project.project_name %> - <%= project.project_type %></h3>
+    <p><%= project.status %> <%=project.stage %></p>
+  </li>
+<% end %>

@@ -11,4 +11,11 @@ FactoryGirl.define do
 
   end
 
+  factory :project do
+    sequence(:project_name) {|n| "Launch Academy 201#{n} Audit"}
+    project_type 'Education'
+    status 'Active'
+    stage 'Planning'
+  end
+
 end
