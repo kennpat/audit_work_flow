@@ -13,9 +13,8 @@ class ProjectCyclesController < ApplicationController
       if cycle != ''
         project_cycle = ProjectCycle.new(project_id: project, cycle_id: cycle)
         project_cycle.save
-
       end
     end
-    redirect_to project_path(project)
+    redirect_to project_path(project), notice: 'Cycles selected were added successfully'
   end
 end
