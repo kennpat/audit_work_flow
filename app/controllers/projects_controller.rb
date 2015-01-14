@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+
   end
 
   def edit
@@ -27,7 +28,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to projects_path, notice: 'Project updated successfully'
+      redirect_to project_path(@project.id), notice: 'Project updated successfully'
     else
       render :edit
     end

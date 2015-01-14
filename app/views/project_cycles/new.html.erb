@@ -1,0 +1,8 @@
+<div class='col-md-4'>
+  <ul>
+  <%= form_for [@project, @project_cycle] do |f| %>
+    <%=f.collection_check_boxes( :cycle_id, Cycle.all, :id, :cycle_name) %>
+    <%=f.submit 'Add Cycles' %>
+  <% end %>
+  </ul>
+</div>
