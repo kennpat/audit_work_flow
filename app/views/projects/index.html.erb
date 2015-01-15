@@ -1,9 +1,9 @@
+<a href="/projects/new">Add a new Project</a>
 <h2>Current Projects</h2>
-
 
 <% @projects.each do |project| %>
   <li>
-    <h3><%= project.project_name %> - <%= project.project_type %></h3>
+    <h3><a href="/projects/<%=project.id%>"><%= project.project_name %></a> - <%= project.project_type %></h3>
     <p><%= project.status %> <%=project.stage %></p>
   </li>
 <% end %>

@@ -6,12 +6,23 @@
     <%= @project.stage %>
   </li>
 </ul>
+<div>
+  <h4>Current Cycles:</h4>
+  <li>
+    <% @project.project_cycles.each do |project_cycle| %>
+      <%= project_cycle.cycle.cycle_name %>
+      <%= link_to 'Edit Cycle', edit_project_cycle_path(project_cycle) %>
+      <% end %>
+  </li>
+</div>
 
 <div>
-  <ul>
-    <%= link_to 'Update Project', @project, method: :edit %>
-    <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </ul>
+
+  <%= link_to 'Add Cycles', new_project_project_cycle_path(@project.id) %>
+
+  <%= link_to 'Update Project', edit_project_path(@project.id) %>
+  <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 </div>
 
 <div><%= link_to :back, '/projects' %></div>

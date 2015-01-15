@@ -1,0 +1,4 @@
+<div>
+<%= link_to 'Remove Cycle', [@project_cycle], method: :delete, data: {confirm: 'Are you sure?'} %>
+</div>
+<div><%= link_to :back, project_path(@project_cycle.project_id) %></div>
