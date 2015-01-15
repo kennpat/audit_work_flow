@@ -18,4 +18,11 @@ FactoryGirl.define do
     stage 'Planning'
   end
 
+  factory :project_cycle do
+  
+  end
+
+  factory :cycle do
+    sequence(:cycle_name) {|n| "Cash#{n}"}
+  end
 end

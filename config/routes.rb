@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :projects do
-    resources :cycles
+    resources :project_cycles, only: [:new, :create]
   end
 
-  resources :projects do
-    resources :project_cycles
-  end
-
+  resources :project_cycles, only: [:show, :edit, :update, :destroy]
   resources :cycles
 end

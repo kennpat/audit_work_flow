@@ -17,4 +17,17 @@ class ProjectCyclesController < ApplicationController
     end
     redirect_to project_path(project), notice: 'Cycles selected were added successfully'
   end
+
+  def edit
+    @project_cycle = ProjectCycle.find(params[:id])
+  end
+
+  def destroy
+    @project_cycle = ProjectCycle.find(params[:id])
+    if @project_cycle.destroy
+      redirect_to projects_path, notice: 'Project Cycle has been removed'
+    else
+      render :edit
+    end
+  end
 end
