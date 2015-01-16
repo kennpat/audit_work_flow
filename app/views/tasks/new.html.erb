@@ -1,0 +1,17 @@
+<%= form_for [@project_cycle, @task] do |f| %>
+  <%= f.label :task_name, 'Task Name' %>
+  <%= f.text_field :task_name %>
+
+  <%= f.label :task_description, 'Task Description' %>
+  <%= f.text_area :task_description %>
+
+  <%= f.label :status_id, 'Status' %>
+  <%= f.collection_select( :status_id, Status.all, :id, :status_name) %>
+
+  <%= f.label :priority, 'Priority (low 1, medium 2, high 3)' %>
+  <%= f.select :priority, ['1','2','3'] %>
+
+  <%= f.hidden_field :project_cycle_id, value: @project_cycle.id %>
+
+  <%= f.submit 'Create Task' %>
+<% end %>

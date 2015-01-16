@@ -12,6 +12,7 @@
     <% @project.project_cycles.each do |project_cycle| %>
       <%= project_cycle.cycle.cycle_name %>
       <%= link_to 'Edit Cycle', edit_project_cycle_path(project_cycle) %>
+      <%= link_to 'View Cycle', project_cycle_path(project_cycle) %>
       <% end %>
   </li>
 </div>
