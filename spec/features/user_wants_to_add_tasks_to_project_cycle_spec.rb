@@ -30,4 +30,15 @@ feature 'Adding a task to a project cycle', %{
 
     end
 
+    scenario 'A user tries to create a task without any information' do
+      visit project_path(@project)
+      click_on 'View Cycle'
+      click_on 'Add Task'
+      click_on 'Create Task'
+
+      expect(page).to have_content "Task name can't be blank"
+      expect(page).to have_content "Task description can't be blank"
+
+    end
+
   end

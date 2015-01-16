@@ -1,3 +1,9 @@
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <ul><%= message %></ul>
+  <% end %>
+<% end %>
+
 <%= form_for [@project_cycle, @task] do |f| %>
   <%= f.label :task_name, 'Task Name' %>
   <%= f.text_field :task_name %>

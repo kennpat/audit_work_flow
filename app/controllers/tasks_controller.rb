@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @project_cycle = ProjectCycle.find(params[:project_cycle_id])
     if @task.save
       redirect_to project_cycle_path(@task.project_cycle_id), notice: 'Task added successfully'
     else
