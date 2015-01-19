@@ -6,5 +6,7 @@
 <% @project_cycle.tasks.each do |task| %>
   <li><p><%= task.task_name %> - Priority: <%= task.priority %>
     - Status: <%= Status.find(task.status_id).status_name %>
-  </p></li>
+  </p><a href='<%= edit_task_path(task.id) %>' class='small button secondary'>Edit Task</a></li>
 <% end %>
+
+<%= link_to :back, project_path(@project_cycle.project_id) %>

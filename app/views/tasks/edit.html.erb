@@ -1,10 +1,4 @@
-<% if @task.errors.any? %>
-  <% @task.errors.full_messages.each do |message| %>
-    <ul><%= message %></ul>
-  <% end %>
-<% end %>
-
-<%= form_for [@project_cycle, @task] do |f| %>
+<%= form_for @task do |f| %>
   <%= f.label :task_name, 'Task Name' %>
   <%= f.text_field :task_name %>
 
@@ -17,9 +11,5 @@
   <%= f.label :priority, 'Priority (low 1, medium 2, high 3)' %>
   <%= f.select :priority, ['1','2','3'] %>
 
-  <%= f.hidden_field :project_cycle_id, value: @project_cycle.id %>
-
-  <%= f.submit 'Create Task' %>
+  <%= f.submit 'Update Task' %>
 <% end %>
-
-<%= link_to :back, project_cycle_path(@project_cycle.id) %>

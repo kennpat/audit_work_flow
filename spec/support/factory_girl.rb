@@ -19,10 +19,17 @@ FactoryGirl.define do
   end
 
   factory :project_cycle do
-  
+
   end
 
   factory :cycle do
     sequence(:cycle_name) {|n| "Cash#{n}"}
+  end
+
+  factory :task do
+    sequence(:task_name) {|n| "Inventory Approach Memo#{n}"}
+    priority 2
+    status_id 1
+    task_description 'Lorem ipsum dolor sit amet, consectetuer adipiscing'
   end
 end
