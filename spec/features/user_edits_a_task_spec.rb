@@ -21,8 +21,21 @@ feature 'A user wants to edit a task', %{
     fill_in 'Task Name', with: 'Inventory Cycle Count'
     click_on 'Update Task'
 
+    expect(page).to have_content 'Task updated successfully'
     expect(page).to have_content 'Inventory Cycle Count'
 
+  end
+
+  scenario 'user tries to update a task with insufficient info' do
+    visit project_cycle_path(@project_cycle.id)
+    click_on 'Edit Task'
+
+    fill_in 'Task Name', with: ''
+    fill_in 'Task Description', with: ''
+    click_on 'Update Task'
+
+    expect(page).to have_content "Task name can't be blank"
+    expect(page).to have_content "Task description can't be blank"
   end
 
 end
