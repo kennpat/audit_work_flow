@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :project_cycles, only: [:new, :create]
   end
 
-  resources :project_cycles, only: [:show, :edit, :update, :destroy]
+  resources :project_cycles, only: [:show, :edit, :update, :destroy] do
+    resources :tasks, only: [:new, :create]
+  end
+
+  resources :tasks, only: [:show, :edit, :update, :destroy, :index]
   resources :cycles
 end

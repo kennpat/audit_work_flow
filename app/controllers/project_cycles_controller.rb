@@ -18,6 +18,10 @@ class ProjectCyclesController < ApplicationController
     redirect_to project_path(project), notice: 'Cycles selected were added successfully'
   end
 
+  def show
+    @project_cycle = ProjectCycle.find_by(id: params[:id])
+  end
+
   def edit
     @project_cycle = ProjectCycle.find(params[:id])
   end

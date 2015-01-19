@@ -1,4 +1,3 @@
-<a href="/projects/new">Add a new Project</a>
 <h2>Current Projects</h2>
 
 <% @projects.each do |project| %>
@@ -7,3 +6,5 @@
     <p><%= project.status %> <%=project.stage %></p>
   </li>
 <% end %>
+
+<% link_to :back, root_path %>

@@ -1,0 +1,23 @@
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+    <ul><%= message %></ul>
+  <% end %>
+<% end %>
+
+<%= form_for @task do |f| %>
+  <%= f.label :task_name, 'Task Name' %>
+  <%= f.text_field :task_name %>
+
+  <%= f.label :task_description, 'Task Description' %>
+  <%= f.text_area :task_description %>
+
+  <%= f.label :status_id, 'Status' %>
+  <%= f.collection_select( :status_id, Status.all, :id, :status_name) %>
+
+  <%= f.label :priority, 'Priority (low 1, medium 2, high 3)' %>
+  <%= f.select :priority, ['1','2','3'] %>
+
+  <%= f.submit 'Update Task' %>
+<% end %>
+
+<span class="small button secondary"><%= link_to 'Delete Task', @task, method: :delete, data: { confirm: 'Are you sure?' } %></span>

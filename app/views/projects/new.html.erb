@@ -1,6 +1,6 @@
 <% if @project.errors.any? %>
   <% @project.errors.full_messages.each do |message| %>
-    <%= message %>
+    <ul><%= message %></ul>
   <% end %>
 <% end %>
 <div class="large-6 columns">
