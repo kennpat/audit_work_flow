@@ -1,12 +1,12 @@
 <h2><%=@project_cycle.cycle.cycle_name %></h2>
 
-<%= link_to 'Add Task', new_project_cycle_task_path(@project_cycle) %>
+<h4 class='small button secondary'><%= link_to 'Add Task', new_project_cycle_task_path(@project_cycle) %></h4>
 
 <h4>Current Tasks</h4>
 <% @project_cycle.tasks.each do |task| %>
-  <li><p><%= task.task_name %> - Priority: <%= task.priority %>
-    - Status: <%= Status.find(task.status_id).status_name %>
-  </p><a href='<%= edit_task_path(task.id) %>' class='small button secondary'>Edit Task</a></li>
+  <li><p><%= task.task_name %> - Priority: <%= task.priority %> - Status: <%= Status.find(task.status_id).status_name %></p>
+    <a href='<%= edit_task_path(task.id) %>' class='small button secondary'>Edit Task</a>
+  </li>
 <% end %>
 
 <%= link_to :back, project_path(@project_cycle.project_id) %>

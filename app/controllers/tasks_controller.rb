@@ -28,6 +28,15 @@ class TasksController < ApplicationController
 
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      redirect_to project_cycle_path(@task.project_cycle_id), notice: 'Project has been successfully deleted'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def task_params

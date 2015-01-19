@@ -19,3 +19,5 @@
 
   <%= f.submit 'Update Task' %>
 <% end %>
+
+<span class="small button secondary"><%= link_to 'Delete Task', @task, method: :delete, data: { confirm: 'Are you sure?' } %></span>
