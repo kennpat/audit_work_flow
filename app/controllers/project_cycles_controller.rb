@@ -1,9 +1,9 @@
 class ProjectCyclesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @project = Project.find(params[:project_id])
     @project_cycle = ProjectCycle.new
-    # binding.pry
   end
 
   def create

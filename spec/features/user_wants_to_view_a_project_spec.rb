@@ -7,6 +7,11 @@ feature 'User would like to view an individual project', %{
   So that I can see the progression of work
 } do
 
+  before :each do
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
+  end
+
   scenario 'A user tries to view the details of an individual project' do
     project = FactoryGirl.create(:project)
     visit project_path(project.id)

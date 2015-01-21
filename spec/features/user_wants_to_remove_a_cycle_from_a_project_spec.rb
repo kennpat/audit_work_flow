@@ -10,9 +10,12 @@ feature 'User wants to edit the Project Cycles in a Project', %{
     @project = FactoryGirl.create(:project)
     @project_cycle = FactoryGirl.create(:project_cycle,
       project_id: @project.id, cycle_id: 3)
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
   end
 
   scenario 'User tries to remove a Project Cycle from an existing project' do
+
     visit project_path(@project.id)
 
     click_on 'Edit Cycle'

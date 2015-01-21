@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116005317) do
+ActiveRecord::Schema.define(version: 20150120150807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigned_users", force: :cascade do |t|
+    t.integer  "project_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assigned_users", ["project_id", "user_id"], name: "index_assigned_users_on_project_id_and_user_id", unique: true, using: :btree
 
   create_table "cycles", force: :cascade do |t|
     t.string "cycle_name", null: false

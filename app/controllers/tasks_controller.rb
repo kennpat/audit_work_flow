@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @task = Task.new
     @project_cycle = ProjectCycle.find(params[:project_cycle_id])
@@ -25,13 +27,13 @@ class TasksController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
     @task = Task.find(params[:id])
     if @task.destroy
-      redirect_to project_cycle_path(@task.project_cycle_id), notice: 'Project has been successfully deleted'
+      redirect_to project_cycle_path(@task.project_cycle_id),
+        notice: 'Project has been successfully deleted'
     else
       render :edit
     end
@@ -40,7 +42,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:task_name, :task_description, :status_id, :priority, :project_cycle_id)
+    params.require(:task).permit(:task_name, :task_description, :status_id,
+      :priority, :project_cycle_id)
   end
-
 end
