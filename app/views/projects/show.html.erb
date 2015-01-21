@@ -27,5 +27,12 @@
   <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>
+<div>
+  <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id) %>
+  <h4>Assigned Staff:</h4>
+  <% @assigned_users.each do |user| %>
+    <%= user.user.name %>
+  <% end %>
+</div>
 
 <div><%= link_to :back, '/projects' %></div>

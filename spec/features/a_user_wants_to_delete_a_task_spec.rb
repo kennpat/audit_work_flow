@@ -17,7 +17,6 @@ feature 'A user deletes a task from a project cycle', %{
 
   scenario 'A user deletes a task' do
     visit project_cycle_path(@project_cycle.id)
-    save_and_open_page
     click_on 'Edit Task'
     click_on 'Delete Task'
     expect(page).to have_content('Project has been successfully deleted')

@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @assigned_users = AssignedUser.where(project_id: params[:id])
   end
 
   def edit
