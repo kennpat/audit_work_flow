@@ -17,6 +17,15 @@ class AssignedUsersController < ApplicationController
     redirect_to project_path(project), notice: 'Staff selected were added successfully'
   end
 
+  def destroy
+    @assigned_user = AssignedUser.find(params[:id])
+    if @assigned_user.destroy
+      redirect_to projects_path, notice: 'User has been successfully removed'
+    else
+      render :show
+    end
+  end
+
   private
 
   def assigned_user_params

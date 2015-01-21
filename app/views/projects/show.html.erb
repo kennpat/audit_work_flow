@@ -31,7 +31,10 @@
   <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id) %>
   <h4>Assigned Staff:</h4>
   <% @assigned_users.each do |user| %>
-    <%= user.user.name %>
+    <li>
+      <%= user.user.name %> - <%= user.user.job_title %>
+      <%= link_to 'Remove Staff', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
   <% end %>
 </div>
 
