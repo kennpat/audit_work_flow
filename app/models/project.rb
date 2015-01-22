@@ -6,6 +6,6 @@ class Project < ActiveRecord::Base
 
   has_many :project_cycles
   has_many :cycles, through: :project_cycles
-  has_many :users, through: :assigned_staff
+  has_many :users
 
 end

@@ -19,6 +19,8 @@ FactoryGirl.define do
   end
 
   factory :project_cycle do
+    cycle_id 1
+    project_id 1
   end
 
   factory :cycle do

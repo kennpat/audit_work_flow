@@ -17,7 +17,6 @@ feature 'User wants to remove a staff assigned to a project', %{
   scenario 'User removes an assigned staff' do
     visit project_path(@project.id)
     click_on 'Remove Staff'
-
     expect(page).to_not have_content @user.name
 
   end

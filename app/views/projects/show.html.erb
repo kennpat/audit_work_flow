@@ -27,13 +27,15 @@
   <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>
+
 <div>
   <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id) %>
   <h4>Assigned Staff:</h4>
-  <% @assigned_users.each do |user| %>
+  <% @assigned_users.each do |assigned_user| %>
     <li>
-      <%= user.user.name %> - <%= user.user.job_title %>
-      <%= link_to 'Remove Staff', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= User.find(assigned_user.user_id).name %>
+       - <%= User.find(assigned_user.user_id).job_title %>
+      <br><%= link_to 'Remove Staff', assigned_user, method: :delete, data: {confirm: 'Are you sure?'}%></br>
     </li>
   <% end %>
 </div>

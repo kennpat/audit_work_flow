@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects, through: :assigned_users
+  has_many :tasks, through: :assigned_users
 end

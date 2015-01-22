@@ -10,8 +10,8 @@ class AssignedUsersController < ApplicationController
     project = params[:project_id]
     users.each do |user|
       if user != ''
-        assigned_staff = AssignedUser.new(project_id: project, user_id: user)
-        assigned_staff.save
+        assigned_user = AssignedUser.new(project_id: project, user_id: user)
+        assigned_user.save
       end
     end
     redirect_to project_path(project), notice: 'Staff selected were added successfully'

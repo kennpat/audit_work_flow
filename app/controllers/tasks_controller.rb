@@ -18,6 +18,15 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    # this needs to be refactored
+    project_cycle = ProjectCycle.find(@task.project_cycle_id)
+    @project = Project.find(project_cycle.project_id)
+    @assigned_users = AssignedUser.where(project_id: @project.id)
+    @users = []
+    @assigned_users.each do |assigned_user|
+      @users << User.find(assigned_user.user_id)
+    end
+
   end
 
   def update
@@ -25,6 +34,14 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to project_cycle_path(@task.project_cycle_id), notice: 'Task updated successfully'
     else
+      # this needs to be refactored
+      project_cycle = ProjectCycle.find(@task.project_cycle_id)
+      @project = Project.find(project_cycle.project_id)
+      @assigned_users = AssignedUser.where(project_id: @project.id)
+      @users = []
+      @assigned_users.each do |assigned_user|
+        @users << User.find(assigned_user.user_id)
+      end
       render :edit
     end
   end
@@ -43,6 +60,6 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:task_name, :task_description, :status_id,
-      :priority, :project_cycle_id)
+      :priority, :project_cycle_id, :user_id)
   end
 end
