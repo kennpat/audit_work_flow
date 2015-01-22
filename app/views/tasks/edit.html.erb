@@ -17,6 +17,8 @@
   <%= f.label :priority, 'Priority (low 1, medium 2, high 3)' %>
   <%= f.select :priority, ['1','2','3'] %>
 
+  <%= f.collection_select(:user_id, @users, :id, :name)%>
+
   <%= f.submit 'Update Task' %>
 <% end %>
 

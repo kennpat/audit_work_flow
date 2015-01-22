@@ -8,12 +8,13 @@ feature 'User wants to add cycles to a project', %{
 
   before :each do
     @project = FactoryGirl.create(:project)
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
   end
 
   scenario 'A user wants to select the available base cycles for an audit' do
 
     visit new_project_project_cycle_path(@project.id)
-
     check 'Cash'
     check 'Accounts Receivable'
     check 'Capital Assets'

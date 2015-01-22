@@ -5,6 +5,11 @@ feature 'A user wishes to update a currect project', %{
   I want to update a project
   So that my team can see the updates
 } do
+  
+  before :each do
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
+  end
 
   scenario 'A user updates a project with compliant information' do
     project = FactoryGirl.create(:project)

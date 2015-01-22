@@ -6,6 +6,11 @@ feature 'Project delete', %{
   so that I can remove duplicate or unused projects
 } do
 
+  before :each do
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
+  end
+
   scenario 'A user tries to delete a project' do
     project = FactoryGirl.create(:project)
     visit project_path(project.id)
@@ -15,5 +20,4 @@ feature 'Project delete', %{
     expect(page).to have_content('Project has been successfully deleted')
 
   end
-
 end

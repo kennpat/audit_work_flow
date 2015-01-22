@@ -11,10 +11,11 @@ feature 'A user wants to edit a task', %{
     @project_cycle = FactoryGirl.create(:project_cycle,
     project_id: @project.id, cycle_id: 3)
     @task = FactoryGirl.create(:task, project_cycle_id: @project_cycle.id)
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
   end
 
   scenario 'user edits a task' do
-
     visit project_cycle_path(@project_cycle.id)
     click_on 'Edit Task'
 

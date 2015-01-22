@@ -10,6 +10,8 @@ feature 'Adding a task to a project cycle', %{
       @project = FactoryGirl.create(:project)
       @project_cycle = FactoryGirl.create(:project_cycle,
       project_id: @project.id, cycle_id: 3)
+      @user = FactoryGirl.create(:user)
+      login_as(@user)
     end
 
     scenario 'A user adds a new task to an existing project cycle' do

@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) {|n| "user#{n}@example.com" }
     sequence(:personal_email) {|n| "user#{n}@example.com" }
-    name 'Frank N. Stein'
+    sequence(:name) {|n| "Frank N. Stein#{n}"}
     job_title 'staff'
     password 'password'
     password_confirmation 'password'
@@ -19,7 +19,8 @@ FactoryGirl.define do
   end
 
   factory :project_cycle do
-
+    cycle_id 1
+    project_id 1
   end
 
   factory :cycle do
@@ -31,5 +32,11 @@ FactoryGirl.define do
     priority 2
     status_id 1
     task_description 'Lorem ipsum dolor sit amet, consectetuer adipiscing'
+  end
+
+  factory :assigned_user do
+    # default values, override them in the test as needed
+    user_id 1
+    project_id 1
   end
 end

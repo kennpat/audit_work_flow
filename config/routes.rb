@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :project_cycles, only: [:new, :create]
+    resources :assigned_users, only: [:new, :create]
   end
 
   resources :project_cycles, only: [:show, :edit, :update, :destroy] do
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :tasks, only: [:show, :edit, :update, :destroy, :index]
   resources :cycles
+  resources :assigned_users, only: [:show, :edit, :update, :destroy, :index]
 end

@@ -4,7 +4,14 @@
 
 <h4>Current Tasks</h4>
 <% @project_cycle.tasks.each do |task| %>
-  <li><p><%= task.task_name %> - Priority: <%= task.priority %> - Status: <%= Status.find(task.status_id).status_name %></p>
+  <li><p><%= task.task_name %> - Priority: <%= task.priority %>
+    <br>Status: <%= Status.find(task.status_id).status_name %></br>
+    <br>Assigned Staff:
+      <%if task.user_id != nil%>
+        <%= User.find(task.user_id).name %>
+      <%else %>
+        No Staff Assigned At This Time
+      <% end %><br></p>
     <a href='<%= edit_task_path(task.id) %>' class='small button secondary'>Edit Task</a>
   </li>
 <% end %>

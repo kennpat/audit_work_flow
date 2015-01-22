@@ -1,3 +1,4 @@
+
 <h2><%= @project.project_name %></h2>
 <ul>
   <li>
@@ -13,8 +14,9 @@
       <%= project_cycle.cycle.cycle_name %>
       <%= link_to 'Edit Cycle', edit_project_cycle_path(project_cycle) %>
       <%= link_to 'View Cycle', project_cycle_path(project_cycle) %>
-      <% end %>
+    <% end %>
   </li>
+
 </div>
 
 <div>
@@ -24,6 +26,18 @@
   <%= link_to 'Update Project', edit_project_path(@project.id) %>
   <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
 
+</div>
+
+<div>
+  <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id) %>
+  <h4>Assigned Staff:</h4>
+  <% @assigned_users.each do |assigned_user| %>
+    <li>
+      <%= User.find(assigned_user.user_id).name %>
+       - <%= User.find(assigned_user.user_id).job_title %>
+      <br><%= link_to 'Remove Staff', assigned_user, method: :delete, data: {confirm: 'Are you sure?'}%></br>
+    </li>
+  <% end %>
 </div>
 
 <div><%= link_to :back, '/projects' %></div>

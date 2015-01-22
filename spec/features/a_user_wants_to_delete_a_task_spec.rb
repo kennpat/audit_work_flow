@@ -11,6 +11,8 @@ feature 'A user deletes a task from a project cycle', %{
     @project_cycle = FactoryGirl.create(:project_cycle,
     project_id: @project.id, cycle_id: 3)
     @task = FactoryGirl.create(:task, project_cycle_id: @project_cycle.id)
+    @user = FactoryGirl.create(:user)
+    login_as(@user)
   end
 
   scenario 'A user deletes a task' do

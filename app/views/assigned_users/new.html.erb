@@ -1,0 +1,11 @@
+<h3>Staff Available:</h3>
+<div class='col-md-4'>
+  <ul>
+    <%= form_for [@project, @available_user] do |f| %>
+    <%=f.collection_check_boxes( :project_id, User.all, :id, :name) %>
+    <%=f.submit 'Add Staff to Project' %>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to :back, project_path(@project.id) %>
