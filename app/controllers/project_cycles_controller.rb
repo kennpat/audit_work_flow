@@ -4,10 +4,11 @@ class ProjectCyclesController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @project_cycle = ProjectCycle.new
+    @cycles = Cycle.all
   end
 
   def create
-    number_of_cycles = params['project_cycle']['cycle_id']
+    number_of_cycles = params['project_cycle']['cycle_ids']
     project = params['project_id']
     number_of_cycles.each do |cycle|
       if cycle != ''

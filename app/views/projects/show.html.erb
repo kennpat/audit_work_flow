@@ -1,43 +1,48 @@
 
-<h2><%= @project.project_name %></h2>
-<ul>
-  <li>
-    <%= @project.project_type %>
-    <%= @project.status %>
-    <%= @project.stage %>
-  </li>
-</ul>
+<h2 class='headline'><%= @project.project_name %></h2>
 <div>
-  <h4>Current Cycles:</h4>
-  <li>
+  <ul>
+    <ul class='listing'>
+      <p>Type: <%= @project.project_type %></p>
+      <p>Status: <%= @project.status %></p>
+      <p>Stage: <%= @project.stage %></p>
+    </ul>
+  </ul>
+</div>
+
+<div>
+  <h4 class='headline'>Current Cycles:</h4>
+
     <% @project.project_cycles.each do |project_cycle| %>
-      <%= project_cycle.cycle.cycle_name %>
-      <%= link_to 'Edit Cycle', edit_project_cycle_path(project_cycle) %>
-      <%= link_to 'View Cycle', project_cycle_path(project_cycle) %>
+      <li class='listing'>
+        <%= project_cycle.cycle.cycle_name %>
+        <%= link_to 'Edit Cycle', edit_project_cycle_path(project_cycle), class: 'tiny button secondary' %>
+        <%= link_to 'View Cycle', project_cycle_path(project_cycle), class: 'tiny button secondary' %>
+      </li>
     <% end %>
-  </li>
 
+</div>
+
+
+<div class="large-12 columns">
+  <ul class="button-group round">
+    <%= link_to 'Add Cycles', new_project_project_cycle_path(@project.id), class: 'small button' %>
+    <%= link_to 'Update Project', edit_project_path(@project.id), class: 'small button' %>
+    <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'small button' %>
+    <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id), class: 'small button' %>
+  </ul>
 </div>
 
 <div>
 
-  <%= link_to 'Add Cycles', new_project_project_cycle_path(@project.id) %>
-
-  <%= link_to 'Update Project', edit_project_path(@project.id) %>
-  <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-</div>
-
-<div>
-  <%= link_to 'Add Staff to Project', new_project_assigned_user_path(@project.id) %>
-  <h4>Assigned Staff:</h4>
+  <h4 class='headline'>Assigned Staff:</h4>
   <% @assigned_users.each do |assigned_user| %>
-    <li>
+    <li class='listing'>
       <%= User.find(assigned_user.user_id).name %>
        - <%= User.find(assigned_user.user_id).job_title %>
-      <br><%= link_to 'Remove Staff', assigned_user, method: :delete, data: {confirm: 'Are you sure?'}%></br>
+      <%= link_to 'Remove Staff', assigned_user, method: :delete, data: {confirm: 'Are you sure?'}, class: 'tiny button secondary'%>
     </li>
   <% end %>
 </div>
 
-<div><%= link_to :back, '/projects' %></div>
+<div><%= link_to :back, '/projects', class: 'small button' %></div>

@@ -1,5 +1,97 @@
-<p>
-  Welcome to {add snazzy app name here}
-</p>
+<div class="row">
+  <div class="large-3 columns">
+    <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+  </div>
+  <div class="large-9 columns">
+    <ul class="right button-group">
+      <li><%= link_to 'View Projects', projects_path, class: 'button' %></li>
+      <li><%= link_to 'View Profile', edit_user_registration_path, class: 'button' %></li>
+    </ul>
+  </div>
+</div>
 
-<div><%= link_to 'View Projects', projects_path %></div>
+<!-- End Header and Nav -->
+
+<!-- First Band (Slider) -->
+
+<div class="row">
+  <div class="large-12 columns">
+    <div id="slider">
+      <div class="crop-header">
+        <%= image_tag('nyc-night1.jpg') %>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
+
+<!-- Three-up Content Blocks -->
+
+<div class="row">
+  <div class="large-4 columns">
+    <div class='block-images'>
+      <%= image_tag('audit-ecard.png') %>
+    </div>
+    <h4>What can give you headaches in an audit?</h4>
+    <p>Managing audit workflow can be a troublesome task for even the most seasoned auditor. This workflow tool helps you track what your staff are working on beyond the classic question 'what are you working on?'</p>
+  </div>
+
+  <div class="large-4 columns">
+
+    <div class='block-images'>
+      <%= image_tag('audit_image2.jpg') %>
+    </div>
+    <h4>What else can this app do for you?</h4>
+    <p>This app will allow you to create an audit project, add the cycles necessary and create tasks within those cycles. You can then assign staff to those tasks so you'll never have to worry about them not knowing what to work on.</p>
+  </div>
+
+  <div class="large-4 columns">
+    <div class='block-images'>
+      <%= image_tag('Auditors-auditors-everywhere.jpg') %>
+    </div>
+    <h4>From a higher level perspective:</h4>
+    <p>Being able to view how each audit is progressing and what workpapers are ready to be reviewed or are still open will allow you as a manager or partner to quickly glance at one screen and be able to guage the progress being made. You will also have the ability to drill down to individual tasks as necessary.</p>
+  </div>
+
+</div>
+
+<!-- Call to Action Panel -->
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="panel">
+      <h4>Get in touch!</h4>
+
+      <div class="row">
+        <div class="large-9 columns">
+          <p>We'd love to hear from you, you attractive person you.</p>
+        </div>
+        <div class="large-3 columns">
+          <a href="#" class="radius button right">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr />
+    <div class="row">
+      <div class="large-6 columns">
+        <p>© Copyright no one at all. Go to town.</p>
+      </div>
+      <!-- <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</footer>

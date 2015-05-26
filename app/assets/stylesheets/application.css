@@ -15,3 +15,38 @@
  *= require foundation_and_overrides
 
  */
+
+ .crop-header{
+   width: 973px;
+   height: 340px;
+   overflow: hidden;
+ }
+
+ .crop-header img{
+   width: inherit;
+   height: 400px;
+   margin: 0px 0px 0px 0px;
+ }
+
+.block-image{
+  width: inherit;
+  height: 340px;
+  overflow: hidden;
+}
+
+.block-image img{
+  width: inherit;
+  height: 400px;
+}
+
+.headline{
+  margin: 0px 0px 0px 30px;
+}
+
+.listing{
+  margin: 0px 0px 0px 40px;
+}
+
+body {
+  background-color: #FAFAFA;
+}

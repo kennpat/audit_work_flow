@@ -1,9 +1,17 @@
-<div class='col-md-4'>
-  <ul>
-  <%= form_for [@project, @project_cycle] do |f| %>
-    <%=f.collection_check_boxes( :cycle_id, Cycle.all, :id, :cycle_name) %>
-    <%=f.submit 'Add Cycles' %>
-  <% end %>
-  </ul>
+<div>
+  <h5>Below are the available cycles to add to your project:</h5>
 </div>
+
+<div class='col-md-4'>
+  <%= form_for [@project, @project_cycle] do |f| %>
+    <%= hidden_field_tag 'project_cycle[cycle_ids][]', nil%>
+    <% @cycles.all.each do |cycle| %>
+      <%= check_box_tag 'project_cycle[cycle_ids][]', cycle.id, @project.project_cycle_ids.include?(cycle.id), id: dom_id(cycle) %>
+      <%= label_tag dom_id(cycle), cycle.cycle_name %></br>
+    <% end %>
+    <%= f.submit 'Add Cycles'%>
+  <% end %>
+
+</div>
+
 <%= link_to :back, project_path(@project.id) %>

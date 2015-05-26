@@ -1,10 +1,12 @@
-<h2>Current Projects</h2>
-
+<h2 class='headline'>Current Projects</h2>
+<div class='listing'>
 <% @projects.each do |project| %>
   <li>
     <h3><a href="/projects/<%=project.id%>"><%= project.project_name %></a> - <%= project.project_type %></h3>
     <p><%= project.status %> <%=project.stage %></p>
   </li>
 <% end %>
+</div>
+<%= link_to 'Add a new Project',new_project_path, class: 'button' %>
 
-<% link_to :back, root_path %>
+<!-- # Need to add pagination for more than 6 or 7 projects -->
