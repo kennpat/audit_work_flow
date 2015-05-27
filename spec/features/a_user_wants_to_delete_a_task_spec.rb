@@ -20,7 +20,5 @@ feature 'A user deletes a task from a project cycle', %{
     click_on 'Edit Task'
     click_on 'Delete Task'
     expect(page).to have_content('Project has been successfully deleted')
-
   end
-
 end
