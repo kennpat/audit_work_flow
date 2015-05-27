@@ -9,13 +9,13 @@
 Cycle.delete_all
 Status.delete_all
 
-Cycle.create([{cycle_name: 'Cash'}, {cycle_name: 'Accounts Receivable'}, {cycle_name: 'Prepaid Assets'},
-  {cycle_name: 'Inventory'}, {cycle_name: 'Capital Assets'}, {cycle_name: 'Intangible Assets'},
-  {cycle_name: 'Investments'}, {cycle_name: 'Other Assets'},{cycle_name: 'Accounts Payable'},
-  {cycle_name: 'Accrued Expenses'}, {cycle_name: 'Debt'}, {cycle_name: 'Equity'}, {cycle_name: 'Revenue'},
-  {cycle_name: 'Operating Expenses'}, {cycle_name: 'Income Taxes'}, {cycle_name: 'Reporting'},
-  {cycle_name: 'Concluding'}])
+Cycle.create([{cycle_name: 'Cash', id: 1}, {cycle_name: 'Accounts Receivable', id: 2}, {cycle_name: 'Prepaid Assets', id: 3},
+  {cycle_name: 'Inventory', id: 4}, {cycle_name: 'Capital Assets', id: 5}, {cycle_name: 'Intangible Assets', id: 6},
+  {cycle_name: 'Investments', id: 7}, {cycle_name: 'Other Assets', id: 8},{cycle_name: 'Accounts Payable', id: 9},
+  {cycle_name: 'Accrued Expenses', id: 10}, {cycle_name: 'Debt', id: 11}, {cycle_name: 'Equity', id: 12}, {cycle_name: 'Revenue', id: 13},
+  {cycle_name: 'Operating Expenses', id: 14}, {cycle_name: 'Income Taxes', id: 15}, {cycle_name: 'Reporting', id: 16},
+  {cycle_name: 'Concluding', id: 17}])
 
-Status.create([{status_name: 'Unassigned'}, {status_name: 'Assigned'}, {status_name: 'In Progress'},
-  {status_name: 'Questions'}, {status_name: 'Waiting for Client'}, {status_name: 'Ready for Review'},
-  {status_name: 'Reviewed with Comments'}, {status_name: 'Closed'}])
+Status.create([{status_name: 'Unassigned', id: 1}, {status_name: 'Assigned', id: 2}, {status_name: 'In Progress', id: 3},
+  {status_name: 'Questions', id: 4}, {status_name: 'Waiting for Client', id: 5}, {status_name: 'Ready for Review', id: 6},
+  {status_name: 'Reviewed with Comments', id: 7}, {status_name: 'Closed', id: 8}])
